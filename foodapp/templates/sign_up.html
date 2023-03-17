@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}sign_up{% endblock %}
+{% block html_head %}
+    <link rel="stylesheet" href="/static/login.css">
+{% endblock %}
+  
+{% block body %}
+
+
+<h2>Create an Account</h2>
+  <form action="/users" method="POST">
+	<p>
+		Name <input type="text" name="name">
+	  </p>
+    <p>
+      Email <input type="text" name="email">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+	<p>
+		Phone <input type="text" name="phone">
+	  </p>
+	  <p>
+		Street <input type="text" name="street">
+	  </p>
+	  <p>
+		City <input type="text" name="city">
+	  </p>
+	  <p>
+		Zipcode <input type="text" name="zipcode">
+	  </p>
+	  <p>
+		State <input type="text" name="state">
+	  </p>
+
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+  {% endblock %}

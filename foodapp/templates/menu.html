@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} menu {% endblock%}
+{% block body %}
+{% for item in menu_items %}
+<p>{{item.name}}</p>
+<p>${{item.price}}</p>
+<img src="{{item.image}}" alt="">
+<button onclick="addedtocart({{item.item_id}})">Add to Cart</button>
+
+
+{%endfor%}
+<script src="../static/menu.js"></script>
+
+{%endblock%}
+
