@@ -17,9 +17,14 @@ def index():
     url = "https://free-food-menus-api-production.up.railway.app/burgers"
     response = requests.get(url)
     data = response.json()
+    print(data)
     
     return render_template('index.html', data=data)
 
+
+@app.route("/home")
+def home():
+    return redirect("/")
 
 
 
@@ -76,32 +81,47 @@ def view_menu():
 
 @app.route("/add_to_cart/<item_id>")
 def add_to_cart(item_id):
+   
     if "cart" in session:
         cart = session['cart']
+        
+        flash("item successfully added to cart.")
     else:
         cart = session['cart'] = {}
-
-        cart[item_id] = cart.get(item_id, 0) + 1
-        flash("item successfully added to cart.")
-        return "item successfully added to cart" 
+        
+    cart[item_id] = cart.get(item_id, 0) + 1
+    return "item successfully added to cart"
 
 
 @app.route("/cart")
 def show_shopping_cart():
+    # return render_template("cart.html")
     order_total = 0
-    cart_burgers = []
+    # cart_burgers = []
     cart = session.get("cart", {})
-    for item_id, quantity in cart.items():
-        # Retrieve the Melon object corresponding to this id
-        burger = item.get_by_id(item_id)
+    burger_list = []
+    total = 0
+    for burger_id,quantity in cart.items():
+        burger_object = crud.get_menu_item_id(burger_id)
+        burger_object.quantity=quantity
+        burger_object.cost=burger_object.price * quantity
+        burger_list.append(burger_object)
+        total += burger_object.price * quantity
+
+    return render_template("cart.html",burger_list=burger_list,total=total)
 
 
 
-@app.route("/navbar")
-def navbar():
-    return render_template("navbar.html")
+     
+@app.route('/logout', methods=['POST', 'GET'])
+def log_out():
 
+    if session.get("customer_id",None):
+        session.pop("user", None)
+        session.pop("cart",None)
+    return redirect('/')
 
+        
 
 
 

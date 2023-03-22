@@ -75,6 +75,14 @@ def create_menu_item(name,price,image):
     menu_item = MenuItem(name=name, price=price,image=image)
     return menu_item
 
+
+def get_menu_item_id(item_id):
+    menu_item =MenuItem.query.get(item_id)
+    return menu_item
+
+
+
+
 def get_all_menu_item():
     menu_items = db.session.query(MenuItem).all()
     return menu_items

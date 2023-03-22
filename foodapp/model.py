@@ -84,6 +84,7 @@ class MenuItem(db.Model):
     """A Menu_item."""
     __tablename__ = "menu_items"
 
+
     item_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Numeric(6,2), nullable=False)
@@ -93,7 +94,7 @@ class MenuItem(db.Model):
     
 
     def __repr__(self):
-        return f"<MenuItem manu_item_id={self.menu_item_id}>"
+        return f"<MenuItem manu_item_id={self.item_id}>"
     
 
 

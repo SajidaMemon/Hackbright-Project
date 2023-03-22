@@ -1,1 +1,32 @@
 {% extends 'base.html' %}
+
+{% block body %}
+{%include 'navbar.html'%}
+
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for burger in burger_list %}
+        <tr>
+            <td>{{ burger.name }}</td>
+            <td>{{ burger.quantity }}</td>
+            <td>${{ "%0.2f" | format(burger.price) }}</td>
+            <td>${{ "%0.2f" | format(burger.cost) }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Total: ${{ "%0.2f" | format(total) }}</h3>
+
+    <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
+
+{% endblock %}
