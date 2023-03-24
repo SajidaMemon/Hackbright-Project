@@ -2,6 +2,7 @@
 from flask import (Flask, render_template, flash, session, redirect,request)
 import requests                  
 from model import connect_to_db, db
+
 import os
 import crud
 
@@ -14,12 +15,12 @@ app.secret_key="dev12345"
 
 @app.route('/', methods=['GET'])
 def index():
-    url = "https://free-food-menus-api-production.up.railway.app/burgers"
-    response = requests.get(url)
-    data = response.json()
-    print(data)
+    # url = "https://free-food-menus-api-production.up.railway.app/burgers"
+    # response = requests.get(url)
+    # data = response.json()
+    # print(data)
     
-    return render_template('index.html', data=data)
+    return render_template('index.html')
 
 
 @app.route("/home")
@@ -53,9 +54,12 @@ def show_signin():
     return render_template("signin.html")
 
 
+
 @app.route("/sign_up",methods= ["GET","POST"])
 def sign_up():
     return render_template("sign_up.html")
+
+
 
 @app.route("/users",methods= ["POST"] )
 def create_user():
@@ -74,10 +78,13 @@ def create_user():
     return render_template("home.html")
 
 
+
 @app.route("/menu")
 def view_menu():
     menu_items = crud.get_all_menu_item()
     return render_template("menu.html", menu_items=menu_items)
+
+
 
 @app.route("/add_to_cart/<item_id>")
 def add_to_cart(item_id):
@@ -91,6 +98,13 @@ def add_to_cart(item_id):
         
     cart[item_id] = cart.get(item_id, 0) + 1
     return "item successfully added to cart"
+
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 
 
 @app.route("/cart")
@@ -109,6 +123,86 @@ def show_shopping_cart():
         total += burger_object.price * quantity
 
     return render_template("cart.html",burger_list=burger_list,total=total)
+
+
+
+@app.route("/checkout")
+def check_out():
+    if 'customer_id' not in session:
+        flash("please sign in")
+        return redirect("/signin")
+
+    order_total = 0
+    # cart_burgers = []
+    cart = session.get("cart", {})
+    burger_list = []
+    total = 0
+    for burger_id,quantity in cart.items():
+        burger_object = crud.get_menu_item_id(burger_id)
+        burger_object.quantity=quantity
+        burger_object.cost=burger_object.price * quantity
+        burger_list.append(burger_object)
+        total += burger_object.price * quantity
+
+    return render_template("checkout.html",burger_list=burger_list,total=total)
+
+
+
+@app.route("/place_order", methods = ["POST"])
+def place_order():
+    
+    card_number = request.form.get("card-number")
+    if 'customer_id' not in session:
+        flash("please sign in")
+        return redirect("/signin")
+    else:
+        customer_id = session.get("customer_id")
+
+
+    if crud.get_payment_by_card_number(card_number):
+        payment_id = crud.get_payment_by_card_number(card_number).payment_id
+    else:
+        payment = crud.create_payment(card_number)
+        db.session.add(payment)
+        db.session.commit()
+        payment_id = payment.payment_id
+
+    order = crud.create_order(customer_id,payment_id)
+    db.session.add(order)
+    db.session.commit()
+    order_id = order.order_id
+    cart = session.get("cart",{})
+
+    for burger_id,quantity in cart.items():
+        burger_price = crud.get_price_of_menu_item(burger_id)
+        order_item = crud.create_order_item(quantity, burger_price, order_id,  burger_id)
+        db.session.add(order_item)
+    db.session.commit()
+
+    del session["cart"]
+    flash("Order Placed")
+    return redirect("/summery")
+
+
+
+@app.route("/summery")
+def ordersummery():
+    return render_template("order_summery.html")
+    
+
+
+@app.route("/contact",methods=["GET","POST"] )
+def contact_us():
+    if request.method =="POST":
+        name = request.form(name)
+        email = request.form(email)
+        subject = request.form(subject)
+        message = request.form(message)
+    
+        return render_template("contact.html")
+
+
+
 
 
 

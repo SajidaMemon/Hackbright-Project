@@ -29,14 +29,23 @@ def get_customer_by_email(email):
 
 
 
-def create_payment(card_number,orders):
-    payment = Payment(card_number=card_number,orders=orders)
+def create_payment(card_number):
+    payment = Payment(card_number=card_number)
     return payment
+
+
+def get_payment_by_card_number(card_number):
+    card = Payment.query.filter_by(card_number=card_number).first()
+    return card
+
+
 
 def get_payment():
     """Return all payment."""
 
     return Payment.query.all()
+
+    
 
 def get_payment_by_id(payment_id):
     """Return a payment by primary key."""
@@ -80,6 +89,9 @@ def get_menu_item_id(item_id):
     menu_item =MenuItem.query.get(item_id)
     return menu_item
 
+def get_price_of_menu_item(item_id):
+    menu_item = MenuItem.query.get(item_id)
+    return menu_item.price
 
 
 

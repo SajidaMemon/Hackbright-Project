@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{%include 'navbar.html'%}
+
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for burger in burger_list %}
+        <tr>
+            <td>{{ burger.name }}</td>
+            <td>{{ burger.quantity }}</td>
+            <td>${{ "%0.2f" | format(burger.price) }}</td>
+            <td>${{ "%0.2f" | format(burger.cost) }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Total: ${{ "%0.2f" | format(total) }}</h3>
+    <h3>Add payment method</h3>
+    <form action="/place_order" method="POST" onsubmit="return validateCard()">
+    <label>Card number</label>
+    <input id="card-number" name="card-number">
+    <input type="submit" value="place_order">
+    </form>
+
+    
+<script src="../static/checkout.js"></script>
+{% endblock %}

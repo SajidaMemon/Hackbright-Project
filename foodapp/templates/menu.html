@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} menu {% endblock%}
 {% block body %}
+{% include "navbar.html" %}
 {% for item in menu_items %}
 <p>{{item.name}}</p>
 <p>${{item.price}}</p>
