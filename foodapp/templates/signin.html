@@ -1,26 +1,54 @@
 
  {% extends 'base.html' %}
 {% block title %}sigin{% endblock %}
+{% include "navbar.html" %}
 
 {% block body %}
+<link rel="stylesheet" href="../static/signin.css">
+ 
+<section class="form my-4 mx-5">
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="col-lg-5">
+        <img src="../static/images/burger1.jpg" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-7 px-5 pt-5" >
+        <h1 class="font-weight-bold py-3 text-dark">Sign In</h1>
+        <form action="/signin" method="POST">
+          <div class="form-row">
+            <div class="col-lg-7">
+              <input type="email" placeholder="Email-Adress" class="form-control my-2 p-2">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <input type="password" placeholder="********" class="form-control my-2 p-2">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7">
+              <button type="button" class="btn1 mt-3 mb-5">Sign in</button>
 
-<h2>Sign In</h2>
-  <form action="/signin" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
+            </div>
 
-    <p>
-      Password <input type="password" name="password">
-    </p>
+          </div>
+          <h5>No account yet? <a href = "/sign_up">Create Account</a></h5>
 
-    <p> 
-      <input type="submit">
-      <h5>No account yet? <a href = "/sign_up">Create Account</a></h5>
-    </p>
-  </form>
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</section>
+
+  
 {% endblock %} 
-
 
 
 

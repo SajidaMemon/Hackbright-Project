@@ -8,13 +8,20 @@
 
     <!--Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/home.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
 
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg  shadow py-3 sticky-top" id="nav-color">
       <div class="container">
-        <a class="navbar-brand" href="#">Burger</a>
+        <a class="navbar-brand" href="#" id="logo-color"><i><img src="../static/images/logo.png" alt=""></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,13 +40,14 @@
               </li>
             </li>
           </ul>
+          <a href="/signin" class="btn btn-brand">Sign in</a>
           <a href="/cart" class="btn btn-brand">My Cart</a>
           
         </div>
       </div>
       <form action="/logout" method="POST" class="center">
       
-        <button type="submit" id='log-out'>Log Out</button>  
+        <button type="submit" id='logout'>Log Out</button>  
   
       </form>
     </nav>

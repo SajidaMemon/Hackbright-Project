@@ -1,6 +1,6 @@
 
 from flask import (Flask, render_template, flash, session, redirect,request)
-import requests                  
+                 
 from model import connect_to_db, db
 
 import os
@@ -45,7 +45,7 @@ def signin():
     else:
         flash("No account associated with email.")
 
-    return redirect("/")
+    return redirect("/signin")
     
 
 
@@ -181,25 +181,36 @@ def place_order():
 
     del session["cart"]
     flash("Order Placed")
-    return redirect("/summery")
+    return redirect(f"/summery/{order_id}")
 
 
 
-@app.route("/summery")
-def ordersummery():
-    return render_template("order_summery.html")
+@app.route("/summery/<order_id>")
+def ordersummery(order_id):
+    order = crud.get_order_by_id(order_id)
+    customer = order.customer
+    order_items = order.order_item
+    total = 0 
+    for item in order_items:
+        total += item.quantity * item.price
+
+
+    return render_template("order_summery.html",order_id=order_id,name=customer.name,order_items=order_items,total=total)
+
     
 
 
 @app.route("/contact",methods=["GET","POST"] )
 def contact_us():
     if request.method =="POST":
-        name = request.form(name)
-        email = request.form(email)
-        subject = request.form(subject)
-        message = request.form(message)
+        name = request.form.get("name")
+        email = request.form.get("email")
+        subject = request.form.get("subject")
+        message = request.form.get("message")
+        flash("Thank you for your message ")
+        return redirect("/")
     
-        return render_template("contact.html")
+    return render_template("contact.html")
 
 
 

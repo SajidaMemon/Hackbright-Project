@@ -8,11 +8,12 @@ body{
     background-color:white;
 }
 .row{
-    background-color:whitesmoke;
+    background-color: whitesmoke;
 }
 img{
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    
 
 }
 .btn1{
@@ -34,5 +35,3 @@ img{
                 0 0 60px rgba(255,166,0),
                 0 0 150px rgba(255,166,0);
 }
-
-
