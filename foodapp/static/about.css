@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background-color:white;
+}
+.row{
+    background-color: whitesmoke;
+}
+img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.about-us{
+    margin-top: 50px;
+}
+.content p{
+    display: flex;
+    color: black;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 20px;
+    margin-right: 50px;
+    
+
+}
+

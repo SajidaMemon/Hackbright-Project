@@ -1,38 +1,42 @@
- {% extends 'base.html' %} 
+{% extends 'base.html' %} 
 {% block title %} menu {% endblock%}
 {% block body %}
 {% include "navbar.html" %}
 
 <link rel="stylesheet" href="../static/menu.css">
 <div class="imgcontainer">
+    
 
 
-{% for item in menu_items%}
-<div class="container">
-    <div class="new-card">
-        <div class="row" style="margin-top: 50px;">
-            {#<div class="col-md-4 py-3 py-md-0 ">#}
-                <div class="card">
-                    <img class="card-image-top" src="{{item.image}}" alt="">
-                    <div class="card-body">
-                        <h2 class="card-titel text-center">{{item.name}}</h2>
-                        <h3 class="card-titel text-center">Price: {{item.price}}</h3>
-                        <p class="card-text text-center"></p>
-                        <div id="btn3"><button onclick="addedtocart({{item.item_id}})">Add to cart</button></div>
-                        
-                    </div>
-                {#</div>#}
-                 
-            </div> 
-            {%endfor%} 
+    {% for item in menu_items%}
+        <div class="new-card">
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-md-4 py-3 py-md-0 ">
+                    <div class="card">
+                        {% if item.image %}
+                        <img class="card-image-top" src="{{item.image}}" alt="">
+                        {% else %}
+                        <img class="card-image-top" src="../static/images/burger3.jpg" alt="">
+                        {% endif %}
+                        <div class="card-body">
+                            <h2 class="card-titel text-center">{{item.name}}</h2>
+                            <h3 class="card-titel text-center">Price: {{item.price}}</h3>
+                            <p class="card-text text-center"></p>
+                            <div id="btn3"><button onclick="addedtocart({{item.item_id}})">Add to cart</button></div>
+                        </div>
+                    </div>            
+                </div>            
             </div>
+        </div>                    
+                {%endfor%} 
+</div>
               
          
 
 
 
 
-<script src="../static/menu.js"></script>
+<script src="../static/js/menu.js"></script>
 
 {%endblock%} 
 

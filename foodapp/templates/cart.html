@@ -3,7 +3,7 @@
 {% block body %}
 {%include 'navbar.html'%}
 
-
+<link rel="stylesheet" href="../static/cart.css">
     <table class="table table-striped mt-3">
         <thead>
         <tr>
@@ -27,6 +27,6 @@
 
     <h3>Total: ${{ "%0.2f" | format(total) }}</h3>
 
-    <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
+    <a href="/checkout" class="btn btn-large" id="btn1">Check Out</a>
 
 {% endblock %}

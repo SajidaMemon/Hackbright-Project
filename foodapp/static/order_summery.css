@@ -1,23 +1,13 @@
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 
 }
-body{
-    background-color:white;
-}
-.row{
-    background-color: whitesmoke;
-}
-img{
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    
-    
 
-}
-.btn1{
+
+#btn1 button{
     width: 200px;
     height: 35px;
     margin-top: 20px;
@@ -26,13 +16,21 @@ img{
     background-color: rgba(255,166,0);
     border: none;
     transition: 0.3s;
-    cursor: pointer;
+    cursor: pointer;  
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 70px;
     
 }
-.btn1:hover{
+
+#btn1 button:hover{
     background-color:  rgba(255,166,0);
     box-shadow: 0 0 5px rgba(255,166,0),
                 0 0 20px rgba(255,166,0),
                 0 0 60px rgba(255,166,0),
                 0 0 150px rgba(255,166,0);
+}
+
+.card{
+    background-color:whitesmoke;
 }

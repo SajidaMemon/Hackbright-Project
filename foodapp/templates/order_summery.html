@@ -4,23 +4,25 @@
 {% block body %}
 
 
-<!-- <link rel="stylesheet" type="text/css" href="../static/order_summery.css" /> -->
+<link rel="stylesheet" type="text/css" href="../static/order_summery.css" /> 
 
 <div class="container mt-5 d-flex justify-content-center">
     <div class="card p-4 mt-3">
        <div class="first d-flex justify-content-between align-items-center mb-3">
          <div class="info">
+            <h2>Order Summery</h2>
              <span class="d-block name">Thank you, {{name}}</span>
 
              <span class="order">Order - {{order_id}}</span>
               
          </div>
         
-          <!-- <img src="https://i.imgur.com/NiAVkEw.png" width="40"/> -->
+          <img src="https://i.imgur.com/NiAVkEw.png" width="40"/>
            
 
        </div>
            <div class="detail">
+            
        <span class="d-block summery">Your order has been dispatched. we are delivering you order.</span>
            </div>
            <div>
@@ -33,6 +35,7 @@
            <div>
             order total: ${{total}}
            </div>
+           <a href="/home" id="btn1"> <button class="">Back to Home</button></a>
 
        
  </div>

@@ -1,23 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-
-}
-body{
-    background-color:white;
-}
-.row{
-    background-color: whitesmoke;
-}
-img{
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    
-    
-
-}
-.btn1{
+#btn1{
     width: 200px;
     height: 35px;
     margin-top: 20px;
@@ -27,9 +8,9 @@ img{
     border: none;
     transition: 0.3s;
     cursor: pointer;
-    
 }
-.btn1:hover{
+
+#btn1:hover{
     background-color:  rgba(255,166,0);
     box-shadow: 0 0 5px rgba(255,166,0),
                 0 0 20px rgba(255,166,0),

@@ -2,6 +2,7 @@
 
 {% block body %}
 {%include 'navbar.html'%}
+<link rel="stylesheet" href="../static/cart.css">
 
 
     <table class="table table-striped mt-3">
@@ -30,9 +31,9 @@
     <form action="/place_order" method="POST" onsubmit="return validateCard()">
     <label>Card number</label>
     <input id="card-number" name="card-number">
-    <input type="submit" value="place_order">
+    <input type="submit" value="Place_Order">
     </form>
 
     
-<script src="../static/checkout.js"></script>
+<script src="../static/js/checkout.js"></script>
 {% endblock %}

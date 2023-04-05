@@ -222,7 +222,7 @@ def contact_us():
 def log_out():
 
     if session.get("customer_id",None):
-        session.pop("user", None)
+        session.pop("customer_id", None)
         session.pop("cart",None)
     return redirect('/')
 
