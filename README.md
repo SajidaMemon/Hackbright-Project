@@ -21,6 +21,8 @@ Python, Jinja, Flask, Javascript, AJAX, PostgreSQL, HTML, CSS, Bootstrap, SQLAlc
 - Sign In 
 - Sign Up
 
+# Data Model
+
 ![schema](https://user-images.githubusercontent.com/70123684/232742837-5fdde162-1837-435f-94ad-311f88f34d08.png)
 
 
