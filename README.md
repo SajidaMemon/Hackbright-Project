@@ -11,14 +11,18 @@ https://user-images.githubusercontent.com/70123684/232741709-050f32ce-3e08-417a-
 ## Technologies
 
 Python, Jinja, Flask, Javascript, AJAX, PostgreSQL, HTML, CSS, Bootstrap, SQLAlchemy,Flask,API
+
 ## Features
 
 - Home Page
-- About US 
+- About Us
 - Menu Page
 - Contact Us 
 - Sign In 
 - Sign Up
+
+![schema](https://user-images.githubusercontent.com/70123684/232742837-5fdde162-1837-435f-94ad-311f88f34d08.png)
+
 
 
 
