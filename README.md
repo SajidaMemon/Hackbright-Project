@@ -8,6 +8,7 @@ https://user-images.githubusercontent.com/70123684/232741709-050f32ce-3e08-417a-
 
 
 
+
 ## Technologies
 
 Python, Jinja, Flask, Javascript, AJAX, PostgreSQL, HTML, CSS, Bootstrap, SQLAlchemy,Flask,API
