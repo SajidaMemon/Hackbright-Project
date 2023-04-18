@@ -1,15 +1,12 @@
 # Food Ordering App
 
-The food Ordering App is the Flask application. where users can create an account, order the food from the menu, and process to the checkout by adding a payme
+The food Ordering App is the Flask application. where users can create an account, order the food from the menu, and process to the checkout by adding a payment method once the order is placed, users can view their food order summary.
 
 https://user-images.githubusercontent.com/70123684/232872388-d0b6f91d-7906-480f-b824-a6c7d63e9e65.mp4
-
-nt method once the order is placed, users can view their food order summary.
 
 
 
 ## Technologies
-
 Python, Jinja, Flask, Javascript, AJAX, PostgreSQL, HTML, CSS, Bootstrap, SQLAlchemy,Flask,API
 
 ## Features
