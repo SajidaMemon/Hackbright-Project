@@ -4,7 +4,7 @@ The food Ordering App is the Flask application. where users can create an accoun
 
 
 
-https://user-images.githubusercontent.com/70123684/232741709-050f32ce-3e08-417a-a3e1-609ac012ae8c.mp4
+<iframe src="https://giphy.com/embed/4oeQEK4RqbiWnVyITt" width="480" height="310" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/4oeQEK4RqbiWnVyITt">via GIPHY</a></p>
 
 
 
